@@ -1,11 +1,18 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Button, TextField, Typography } from "@mui/material";
+import {
+  TextField,
+  Typography,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+
 import { useState } from "react";
 
 const FromContainer = styled("div")({
-  padding: "0 auto",
+  margin: "0 auto",
   textAlign: "center",
 });
 
@@ -33,9 +40,14 @@ function WeatherSearch({ onSearch }) {
           onSubmit={handleSubmit}
         >
           <TextField
-            style={{ marginRight: "10px" }}
+            style={{
+              marginRight: "10px",
+              background: "#2D3A50",
+              borderRadius: "10px",
+            }}
             required
             label="city"
+            placeholder="City Name e.g Lahore"
             variant="outlined"
             value={city}
             onChange={(e) => setState(e.target.value)}
@@ -43,14 +55,19 @@ function WeatherSearch({ onSearch }) {
               marginRight: "10px",
               input: {
                 color: "#ffffff",
-                background: "#1C2432",
                 borderRadius: "10px",
               },
             }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton type="submit" edge="end" color="primary">
+                    <SearchIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
-          <Button type="submit" variant="contained">
-            Submit
-          </Button>
         </form>
       </FromContainer>
     </>
