@@ -4,7 +4,9 @@ import BackgroundStyle from "@/components/background";
 import CurrentForeCast from "@/components/currentForeCast";
 import ForecastForDays from "@/components/daysForeCast";
 import WeatherSearch from "@/components/weatherCard";
-import clearSky from "../../public/assets/clearSky.jpg";
+import styles from "../page.module.css";
+
+import "../page.module.css";
 import { styled } from "@mui/system";
 import { useState } from "react";
 
@@ -43,22 +45,38 @@ function ForecastPage() {
     }
   };
 
-  const backgrundStyle = forecast ? BackgroundStyle(forecast) : {};
+  const backgroundStyle = forecast ? BackgroundStyle(forecast) : {};
+  const dynamicImageURL = forecast
+    ? BackgroundStyle(forecast).backgroundImage
+    : null;
+
   return (
     <>
-      <MainForeCast style={backgrundStyle} className="background-container">
-        <WeatherSearch onSearch={handleSearch} />
-        {loading && <p>Loading...</p>}
-        {error && <p>Error: {error}</p>}
-        {forecast && (
-          <>
-            <CurrentForeCast forecast={forecast} />
-            <ForecastForDays forecast={forecast} />
-
-            {/* <BackgroundStyle /> */}
-          </>
-        )}
-      </MainForeCast>
+      <div>
+        <div
+          className={styles.backgroundImage}
+          style={{
+            backgroundImage: dynamicImageURL
+              ? `url(${dynamicImageURL})`
+              : "url(/assets/backgroundImage.jpeg)",
+            opacity: dynamicImageURL ? 0.2 : 1,
+          }}
+        ></div>
+        <MainForeCast
+          style={backgroundStyle}
+          className={styles.backgroundContainer}
+        >
+          <WeatherSearch onSearch={handleSearch} />
+          {loading && <p>Loading...</p>}
+          {error && <p>Error: {error}</p>}
+          {forecast && (
+            <>
+              <CurrentForeCast forecast={forecast} />
+              <ForecastForDays forecast={forecast} />
+            </>
+          )}
+        </MainForeCast>
+      </div>
     </>
   );
 }

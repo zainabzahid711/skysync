@@ -6,8 +6,8 @@ const WeatherDetails = styled("div")(({ theme }) => ({
   maxWidth: "100%",
   width: "700px",
   margin: "0 auto",
-  background: "rgba(30, 40, 60, .9)",
-  color: "white",
+  background: "rgba(28, 36, 50, 0.7)",
+  color: "#ffffff",
   padding: "40px",
   borderRadius: "20px",
   marginTop: "20px",
@@ -28,6 +28,7 @@ const TempDiv = styled("div")(({ theme }) => ({
   fontWeight: 600,
   fontSize: "30px",
 
+  color: "#ffffff",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
   },
@@ -37,6 +38,7 @@ const DescriptionDiv = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "10px",
+  color: "#ffffff",
   [theme.breakpoints.down("sm")]: {
     display: "flex",
     gap: "10px",
@@ -44,6 +46,7 @@ const DescriptionDiv = styled("div")(({ theme }) => ({
 }));
 
 const Descriptions = styled("div")(({ theme }) => ({
+  color: "#ffffff",
   display: "flex",
   flexDirection: "column",
   textAlign: "center",
@@ -56,6 +59,7 @@ const Descriptions = styled("div")(({ theme }) => ({
 }));
 
 const SkyDetails = styled("div")(({ theme }) => ({
+  color: "#ffffff",
   display: "flex",
   gap: "10px",
 
@@ -69,7 +73,7 @@ const CenterDiv = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "white",
+  color: "#fffffff",
 });
 
 function CurrentForeCast({ forecast }) {

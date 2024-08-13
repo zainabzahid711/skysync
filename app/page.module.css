@@ -5,14 +5,21 @@
   /* align-items: center; */
   /* padding: 2rem; */
   /* min-height: 100vh; */
-  background-image: url(/public/assets/background.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
   @media screen and (max-width: 600px) {
     padding: 1rem;
   }
 }
 
+.backgroundContainer {
+  position: absolute;
+  background-image: url(/assets/backgroundImage.jpg);
+  filter: opacity(0.4);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
 .description {
   display: inherit;
   justify-content: inherit;

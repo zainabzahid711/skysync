@@ -64,13 +64,11 @@ import snowy from "../public/assets/snowyWeather.jpg";
 function BackgroundStyle(weatherDescription) {
   console.log("Weather Description:", weatherDescription);
 
-  // Ensure weatherDescription is a string and handle invalid types
   const description =
     typeof weatherDescription === "string"
       ? weatherDescription.toLowerCase()
       : "";
 
-  // Define your images mapping
   const images = {
     clear: clearSky,
     clouds: cloudy,
@@ -78,19 +76,15 @@ function BackgroundStyle(weatherDescription) {
     snow: snowy,
   };
 
-  // Get the appropriate background image or use a default
-  const backgroundImage = images[description] || clearSky.src;
+  const backgroundImage = images[description] || snowy.src;
 
-  console.log("Selected Background Image:", backgroundImage);
-
-  // Return style object
   return {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     minHeight: "100vh",
     width: "100%",
-    opacity: ".5",
+    filter: "opacity(0.5)",
   };
 }
 export default BackgroundStyle;

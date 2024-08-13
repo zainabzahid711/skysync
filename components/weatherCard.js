@@ -29,7 +29,7 @@ function WeatherSearch({ onSearch }) {
     <>
       <FromContainer style={{ padding: "2rem" }}>
         <Typography style={{ marginBottom: "20px" }}>
-          Enter city name to see full forecast
+          Enter city name to see forecast
         </Typography>
         <form
           style={{
@@ -41,9 +41,12 @@ function WeatherSearch({ onSearch }) {
         >
           <TextField
             style={{
+              width: "700px",
               marginRight: "10px",
-              background: "#2D3A50",
-              borderRadius: "10px",
+              background: "rgba(25, 36, 50, .8)",
+              color: "rgba(255, 255, 255, 1)",
+              borderRadius: "20px",
+              zIndex: "100",
             }}
             required
             label="city"
