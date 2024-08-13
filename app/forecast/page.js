@@ -1,13 +1,20 @@
 "use client";
 
+import BackgroundStyle from "@/components/background";
 import CurrentForeCast from "@/components/currentForeCast";
 import ForecastForDays from "@/components/daysForeCast";
 import WeatherSearch from "@/components/weatherCard";
+import clearSky from "../../public/assets/clearSky.jpg";
 import { styled } from "@mui/system";
 import { useState } from "react";
 
 const MainForeCast = styled("div")({
+  position: "relative",
   maxWidth: "100%",
+  zIndex: "1300",
+  minHeight: "100vh",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
 });
 
 function ForecastPage() {
@@ -36,9 +43,10 @@ function ForecastPage() {
     }
   };
 
+  const backgrundStyle = forecast ? BackgroundStyle(forecast) : {};
   return (
     <>
-      <MainForeCast>
+      <MainForeCast style={backgrundStyle} className="background-container">
         <WeatherSearch onSearch={handleSearch} />
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
@@ -46,6 +54,8 @@ function ForecastPage() {
           <>
             <CurrentForeCast forecast={forecast} />
             <ForecastForDays forecast={forecast} />
+
+            {/* <BackgroundStyle /> */}
           </>
         )}
       </MainForeCast>

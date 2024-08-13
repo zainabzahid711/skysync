@@ -1,40 +1,75 @@
 import { Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
-const WeatherDetails = styled("div")({
+const WeatherDetails = styled("div")(({ theme }) => ({
+  padding: "2rem",
   maxWidth: "100%",
   width: "700px",
-  background: "rgba(28, 36, 50, 0.7)",
+  margin: "0 auto",
+  background: "rgba(30, 40, 60, .9)",
+  color: "white",
   padding: "40px",
   borderRadius: "20px",
   marginTop: "20px",
   display: "flex",
-  justifyContent: "space-around",
-});
+  justifyContent: "space-between",
 
-const TempDiv = styled("div")({
+  [theme.breakpoints.down("sm")]: {
+    padding: ".7rem",
+    padding: "20px",
+    justifyContent: "space-between",
+  },
+}));
+
+const TempDiv = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  fontWeight: "600",
+  fontWeight: 600,
   fontSize: "30px",
-});
 
-const DescriptionDiv = styled("div")({
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+  },
+}));
+
+const DescriptionDiv = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "10px",
-});
+  [theme.breakpoints.down("sm")]: {
+    display: "flex",
+    gap: "10px",
+  },
+}));
 
-const SkyDetails = styled("div")({
+const Descriptions = styled("div")(({ theme }) => ({
   display: "flex",
-  gap: "20px",
-});
+  flexDirection: "column",
+  textAlign: "center",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "13px",
+    display: "flex",
+    flexDirection: "row",
+    gap: "10px",
+  },
+}));
+
+const SkyDetails = styled("div")(({ theme }) => ({
+  display: "flex",
+  gap: "10px",
+
+  [theme.breakpoints.down("sm")]: {
+    gap: "9px",
+    flexDirection: "column",
+  },
+}));
 
 const CenterDiv = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  color: "white",
 });
 
 function CurrentForeCast({ forecast }) {
@@ -54,7 +89,7 @@ function CurrentForeCast({ forecast }) {
             src={`http://openweathermap.org/img/wn/${forecast.current.weather[0].icon}@2x.png`}
             alt="Weather icon"
           />
-          <p>{forecast.current.main.temp}°C</p>
+          <p style={{ color: "white" }}>{forecast.current.main.temp}°C</p>
         </TempDiv>
 
         <DescriptionDiv>
@@ -63,19 +98,12 @@ function CurrentForeCast({ forecast }) {
           </CenterDiv>
           <SkyDetails>
             {skyDetailsItems.map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
+              <Descriptions key={index}>
                 <p>
-                  <strong>{item.label}</strong>
+                  <strong style={{ color: "white" }}>{item.label}</strong>
                 </p>
-                <p>{item.value}</p>
-              </div>
+                <p style={{ color: "white" }}>{item.value}</p>
+              </Descriptions>
             ))}
           </SkyDetails>
           <CenterDiv>{forecast.current.weather[0].description}</CenterDiv>

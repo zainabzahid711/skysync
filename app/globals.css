@@ -93,6 +93,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  /* background-color: transparent; */
 }
 
 a {
@@ -103,5 +104,14 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+p {
+  font-size: 14px;
+  gap: 20px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
   }
 }

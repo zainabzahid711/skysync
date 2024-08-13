@@ -27,7 +27,7 @@ function WeatherSearch({ onSearch }) {
   };
   return (
     <>
-      <FromContainer>
+      <FromContainer style={{ padding: "2rem" }}>
         <Typography style={{ marginBottom: "20px" }}>
           Enter city name to see full forecast
         </Typography>
