@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const ForecastContainer = styled("div")({
   marginTop: "20px",
-  background: "rgba(28, 36, 50, 0.5)",
+  background: "rgba(0, 0, 0, 0.9)",
   padding: "20px",
   borderRadius: "10px",
   width: "100%",

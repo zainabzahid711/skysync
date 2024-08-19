@@ -43,8 +43,8 @@ function WeatherSearch({ onSearch }) {
             style={{
               width: "700px",
               marginRight: "10px",
-              background: "rgba(25, 36, 50, .8)",
-              color: "rgba(255, 255, 255, 1)",
+              background: "rgba(0, 0, 0, 0.9)",
+              color: "rgba(255, 255, 255)",
               borderRadius: "20px",
               zIndex: "100",
             }}

@@ -6,7 +6,7 @@ const WeatherDetails = styled("div")(({ theme }) => ({
   maxWidth: "100%",
   width: "700px",
   margin: "0 auto",
-  background: "rgba(28, 36, 50, 0.7)",
+  background: "rgba(0, 0, 0, 0.9)",
   color: "#ffffff",
   padding: "40px",
   borderRadius: "20px",

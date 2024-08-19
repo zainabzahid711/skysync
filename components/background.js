@@ -84,7 +84,6 @@ function BackgroundStyle(weatherDescription) {
     backgroundRepeat: "no-repeat",
     minHeight: "100vh",
     width: "100%",
-    filter: "opacity(0.5)",
   };
 }
 export default BackgroundStyle;
